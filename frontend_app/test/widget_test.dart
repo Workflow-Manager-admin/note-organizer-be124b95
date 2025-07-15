@@ -3,16 +3,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:frontend_app/main.dart';
 
 void main() {
-  testWidgets('App generation message displayed', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
-
-    expect(find.text('frontend_app App is being generated...'), findsOneWidget);
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+  testWidgets('App home screen displays Notes title', (WidgetTester tester) async {
+    await tester.pumpWidget(const NotesApp());
+    expect(find.text('Notes'), findsOneWidget);
   });
 
-  testWidgets('App bar has correct title', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
-
-    expect(find.text('frontend_app'), findsOneWidget);
+  testWidgets('FAB for adding note present', (WidgetTester tester) async {
+    await tester.pumpWidget(const NotesApp());
+    expect(find.byIcon(Icons.add), findsOneWidget);
   });
 }
